@@ -7,6 +7,22 @@ KoboldCpp is an easy-to-use AI text-generation software for GGML and GGUF models
 ![Preview](media/preview3.png)
 ![Preview](media/preview4.png)
 
+## How to compile on Windows with CuBLAS support on Windows by knifeayumu
+
+Requirements:
+- Latest release of w64devkit (https://github.com/skeeto/w64devkit). Download and extract `w64devkit-1.21.0.zip`
+- Visual Studio Community (https://visualstudio.microsoft.com/downloads/) with `C++ CMake tools for Windows` and `Windows 11 SDK`
+- Visual Studio Code (https://code.visualstudio.com)
+- CUDA Toolkit 12.4 (https://developer.nvidia.com/cuda-downloads)
+
+Steps:
+- Open terminal and run `git clone -b concedo_experimental https://github.com/knifeayumu/koboldcpp`
+- Run w64devkit and locate koboldcpp source folder then run `make`.
+- Open VSCode and locate koboldcpp source folder. Open CMakeLists.txt and hit `Build` button on the bottom of the window.
+- Copy `koboldcpp_cublas.dll` located at `build\bin\Debug` folder and paste it to source root folder.
+- Run the script `make_pyinstaller_hybrid_henk.bat` at a regular terminal (or Windows Explorer).
+- Run `koboldcpp.exe` located at `dist` folder.
+
 ## Windows Usage
 - **[Download the latest .exe release here](https://github.com/LostRuins/koboldcpp/releases/latest)** or clone the git repo.
 - Windows binaries are provided in the form of **koboldcpp.exe**, which is a pyinstaller wrapper for a few **.dll** files and **koboldcpp.py**. You can also rebuild it yourself with the provided makefiles and scripts.
